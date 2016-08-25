@@ -15,14 +15,14 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/public/index.html');
+    // Show me index.html
 });
 
 app.post('/contacts', function(req, res){
-    res.send(req.body);
+    // Show me the contents submitted by the form
 });
 app.get('/contacts', function(req, res){
-    res.sendFile(__dirname + 'contacts.json');
+    // Show me the contents of contacts.json
 });
 
 app.use(express.static('public'));
