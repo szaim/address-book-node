@@ -22,7 +22,7 @@ app.post('/contacts', function(req, res){
     res.send(req.body);
 });
 app.get('/contacts', function(req, res){
-    res.sendFile(__dirname + 'contacts.json');
+    res.sendFile(__dirname + '/contacts.json');
 });
 
 app.use(express.static('public'));
