@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 var fs = require('fs');
 const express = require('express'),
 	bodyParser = require('body-parser'),
 	hbs = require('hbs'),
-=======
-require('fs');
-var express = require('express'),
-    bodyParser = require('body-parser'),
->>>>>>> f8a9cfc... small changes.
     app = express();
 
 app.use(bodyParser.json());
@@ -24,8 +18,6 @@ app.use(function(req, res, next) {
 	next();
 });
 
-
-
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
@@ -36,6 +28,12 @@ app.get('/', function(req, res) {
 	res.render('index', {
 		title: "Address Book"
 	});
+
+app.post('/contacts', function(req, res){
+    res.send(req.body);
+});
+app.get('/contacts', function(req, res){
+    res.sendFile(__dirname + '/contacts.json');
 });
 
 function getData(filename, callback) {
