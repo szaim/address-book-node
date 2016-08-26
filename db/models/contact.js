@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+var contactSchema = new Schema({
     firstName: String,
     lastName: String,
 });
 
-var User = mongoose.model('User', userSchema);
+var Contact = mongoose.model('User', contactSchema);
 
-module.exports = User;
+module.exports = Contact;
