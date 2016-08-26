@@ -1,8 +1,15 @@
-var fs = require('fs');
+require('./db/connect');
+
+const mongoose = require('mongoose'),
+    Contact = require('./db/models/contact');
+    mongoose.Promise = Promise;
+
 const express = require('express'),
-	bodyParser = require('body-parser'),
-	hbs = require('hbs'),
+    bodyParser = require('body-parser'),
     app = express();
+
+
+app.use(express.static('public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -12,10 +19,9 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname + '/public'));
 
 app.use(function(req, res, next) {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Methods', 'GET,POST');
-	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-	next();
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
 app.set('view engine', 'html');
@@ -33,8 +39,11 @@ app.post('/contacts', function(req, res){
     res.send(req.body);
 });
 app.get('/contacts', function(req, res){
-    res.sendFile(__dirname + '/contacts.json');
+    Contact.find().then(function(contacts){
+        res.send(contacts);
+    });
 });
+
 
 function getData(filename, callback) {
     fs.readFile(filename, function(err, data) {
