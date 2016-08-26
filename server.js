@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 var fs = require('fs');
 const express = require('express'),
 	bodyParser = require('body-parser'),
 	hbs = require('hbs'),
+=======
+require('fs');
+var express = require('express'),
+    bodyParser = require('body-parser'),
+>>>>>>> f8a9cfc... small changes.
     app = express();
 
 app.use(bodyParser.json());
