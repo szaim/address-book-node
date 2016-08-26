@@ -1,13 +1,11 @@
 {{> head title="My contacts"}}
-<header role="banner" class="container">
-    <h1>My contacts</h1>
-</header>
 <main role="main" class="container">
     <div class="contacts-container">
         <ul>
             {{#each contacts as |contact|}}
-            <li>{{contact.firstname}}</li>
+            <li>{{contact.lastname}}, {{contact.firstname}}</li>
             {{/each}}
         </ul>
     </div>
 </main>
+{{> foot}}

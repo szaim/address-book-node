@@ -1,8 +1,1 @@
-[{
-    "firstname": "Allison",
-    "lastname": "Champlan"
-},
-{
-    "firstname":"Monique",
-    "lastname":"DeVries"
-}]
+[{"firstname":"Allison","lastname":"Champlan"},{"firstname":"Monique","lastname":"DeVries"},{"firstname":"Jonah","lastname":"Mason"}]
