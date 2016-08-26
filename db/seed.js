@@ -15,6 +15,8 @@ var demoContacts = [{
         lastName: "Barnes"
     }]
 
-User.insertMany(demoContacts, function(){
-    mongoose.disconnect();
-});
+User.collection.drop();
+
+User.create(demoContacts).then(function(){
+    mongoose.disconnect();    
+})
