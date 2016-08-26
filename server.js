@@ -41,4 +41,4 @@ app.listen(8081, function() {
     console.log('Running on port 8081');
 });
 
-exports.app = app;
+module.exports = app;
