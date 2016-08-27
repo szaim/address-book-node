@@ -21,7 +21,7 @@ describe('Contacts', () => {
     });
 
     describe('/GET contacts', () => {
-        it('it should GET all the contacts', (done) => {
+        it('it should GET all the contacts', done => {
             chai.request(server)
             .get('/contacts')
             .end((err, res) => {
@@ -31,5 +31,11 @@ describe('Contacts', () => {
                 done();
             });
         });
+    });
+    // TODO:
+    // describe('/POST contact', () => {
+    //     it('should POST a new contact', done => {
+    //        test goes here!
+    //     });
     });
 });
