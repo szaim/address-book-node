@@ -20,7 +20,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "SET NODE-ENV=dev && nodemon server.js",
+    "start": "NODE_ENV=development && nodemon server.js",
     "seed:dev": "node db/seed.js"
   },
   "author": [

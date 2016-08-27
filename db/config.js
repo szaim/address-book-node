@@ -6,6 +6,6 @@ module.exports = {
         "url": "mongodb://localhost/address-book-test"
     },
     "development": {
-        "url": "mongodb://localhost/address-book-test-dev"
+        "url": "mongodb://localhost/address-book-dev"
     }
 }
