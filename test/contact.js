@@ -13,25 +13,23 @@ let should = require('chai').should();
 
 chai.use(chaiHttp);
 
-describe('Contacts', function(){
-    beforeEach((done) => {
-Contact.remove({})
-    .then(function(){
-        return done();
+describe('Contacts', () => {
+    beforeEach(done => {
+        Contact.remove({}).then(function(){
+            return done();
+        });
+    });
+
+    describe('/GET contacts', () => {
+        it('it should GET all the contacts', (done) => {
+            chai.request(server)
+            .get('/contacts')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('array');
+                res.body.length.should.be.eql(0);
+                done();
+            });
+        });
     });
 });
-    describe('/GET contacts', () => {
-          it('it should GET all the contacts', (done) => {
-            chai.request(server)
-                .get('/contacts')
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.should.be.a('array');
-                    res.body.length.should.be.eql(0);
-
-                  done();
-                });
-          });
-      });
-
-  });
