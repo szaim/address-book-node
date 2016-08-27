@@ -42,47 +42,9 @@ app.get('/', function(req, res) {
 
 app.post('/contacts', function(req, res){
     Contact.create(req.body).then(() => {
-        res.redirect('/');
+        res.redirect(302,  '/');
     })
 });
-
-
-
-function getData(filename, callback) {
-    fs.readFile(filename, function(err, data) {
-        if (err) {
-            callback(err);
-            return;
-        }
-        try {
-            callback(null, JSON.parse(data));
-        } catch (exception) {
-            callback(exception);
-        }
-    })
-}
-
-app.route('/contacts')
-	.get(function(req, res) {
-		getData('contacts.json', function(err, contacts) {
-			if (err) {
-				throw err
-			}
-			res.render('contacts', {contacts: contacts});
-		})
-	})
-	.post(function(req, res) {
-        getData('contacts.json', function(err, contacts){
-            if (err) {
-				throw err
-			}
-            contacts.push(req.body);
-            var newContacts = JSON.stringify(contacts);
-            fs.writeFileSync('contacts.json', newContacts)
-        });
-        res.redirect('contacts');
-
-    });
 
 app.listen(8081, function() {
 	console.log('Running on port 8081');
