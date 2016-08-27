@@ -38,15 +38,14 @@ app.get('/', function(req, res) {
             contacts: contacts
     	});
     });
-
 });
 
 app.post('/contacts', function(req, res){
-    res.send(req.body);
+    Contact.create(req.body).then(() => {
+        res.redirect('/');
+    })
 });
-// app.get('/contacts', function(req, res){
-//
-// });
+
 
 
 function getData(filename, callback) {
