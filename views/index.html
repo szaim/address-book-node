@@ -13,8 +13,14 @@
             </form>
         </section>
         <section class="lookup">
-            <h3>Look up your contacts</h3>
-            <a href="/contacts" role="button" class="button">Show Contacts</a>
+            <h3>Your current contacts</h3>
+            <section class="contacts-wrap">
+                <ul>
+                    {{#each contacts as |contact|}}
+                    <li>{{contact.lastName}}, {{contact.firstName}}</li>
+                    {{/each}}
+                </ul>
+            </section>
         </section>
     </main>
     {{> foot}}

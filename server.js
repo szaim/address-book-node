@@ -32,19 +32,21 @@ app.engine('html', require('hbs').__express);
 hbs.registerPartials(__dirname + '/views/partials/');
 
 app.get('/', function(req, res) {
-	res.render('index', {
-		title: "Address Book"
-	});
+    Contact.find().then(function(contacts){
+        res.render('index', {
+    		title: "Address Book",
+            contacts: contacts
+    	});
+    });
+
 });
 
 app.post('/contacts', function(req, res){
     res.send(req.body);
 });
-app.get('/contacts', function(req, res){
-    Contact.find().then(function(contacts){
-        res.send(contacts);
-    });
-});
+// app.get('/contacts', function(req, res){
+//
+// });
 
 
 function getData(filename, callback) {
