@@ -5,14 +5,26 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "consolidate": "^0.14.1",
     "express": "^4.14.0",
-    "mongoose": "^4.5.10"
+    "handlebars": "^4.0.5",
+    "mongodb": "^2.2.8",
+    "mongoose": "^4.5.10",
+    "nodemon": "^1.10.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.0.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "test": "mocha",
+    "start": "SET NODE-ENV=dev && nodemon server.js",
+    "seed:dev": "node db/seed.js"
   },
-  "author": ["Elias Mason", "Sofia Zaim"],
+  "author": [
+    "Elias Mason",
+    "Sofia Zaim"
+  ],
   "license": "ISC"
 }
