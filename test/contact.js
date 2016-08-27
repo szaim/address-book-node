@@ -22,12 +22,13 @@ describe('Contacts', () => {
 
     describe('/GET contacts', () => {
         it('it should GET all the contacts', done => {
+            Contact.create({"firstName":"Joe", "lastName":"Smith"});
             chai.request(server)
             .get('/contacts')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
-                res.body.length.should.be.eql(0);
+                res.body.length.should.be.eql(1);
                 done();
             });
         });
@@ -37,5 +38,7 @@ describe('Contacts', () => {
     //     it('should POST a new contact', done => {
     //        test goes here!
     //     });
-    });
+    // });
+
+
 });
