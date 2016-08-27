@@ -6,6 +6,7 @@ const mongoose = require('mongoose'),
 
 const express = require('express'),
     bodyParser = require('body-parser'),
+    hbs = require('hbs');
     app = express();
 
 
@@ -34,6 +35,7 @@ app.get('/', function(req, res) {
 	res.render('index', {
 		title: "Address Book"
 	});
+});
 
 app.post('/contacts', function(req, res){
     res.send(req.body);
