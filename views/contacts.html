@@ -1,0 +1,11 @@
+{{> head title="My contacts"}}
+<main role="main" class="container">
+    <div class="contacts-container">
+        <ul>
+            {{#each contacts as |contact|}}
+            <li>{{contact.lastName}}, {{contact.firstName}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</main>
+{{> foot}}

@@ -1,0 +1,26 @@
+{{> head title="Address Book"}}
+    <main role="main" class="container">
+        <section class="add">
+            <form class="contact-form" action="/contacts" method="post">
+                <legend>Add a new contact</legend>
+                <fieldset class="contact-form-name">
+                    <label for="firstName">First name</label>
+                    <input type="text" name="firstName">
+                    <label for="lastName">Last name</label>
+                    <input type="text" name="lastName">
+                </fieldset>
+                <button type="submit" class="button-primary">Submit!</button>
+            </form>
+        </section>
+        <section class="lookup">
+            <h3>Your current contacts</h3>
+            <section class="contacts-wrap">
+                <ul>
+                    {{#each contacts as |contact|}}
+                    <li>{{contact.lastName}}, {{contact.firstName}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+        </section>
+    </main>
+    {{> foot}}
